@@ -5,11 +5,16 @@ The library expects the reader to be in ASCII mode to parse the output.
 
 Usage
 -----
-To use this library, unpack it to your libraries folder in the Arduino IDE root or sketchbook root
+To use this library, unpack it to your libraries folder in the Arduino IDE root or sketchbook root.
+
 For example:
+
     <arduino-1.x>/libraries/IDxSerial/
+    
 Or:
+
     <sketchbook>/libraries/IDxSerial/
+    
 See <http://arduino.cc/en/Guide/Environment#libraries> for more information.
 
 Connections
@@ -21,5 +26,27 @@ To hook your reader to the Arduino, use the following connections:
     PIN1  -> GND
     PIN2  -> +5V
     PIN7  -> GND
-    PIN9  -> (any digital pin)
+    PIN9  -> (RX pin you initialize the library with)
     PIN11 -> +5V
+    
+Getting started
+---------------
+To use the library, follow this example:
+
+    #include <IDxSerial.h>
+    IDxSerial RFIDreader = IDxSerial(8, 9);
+    
+    void setup(void) {
+        Serial.begin(9600);
+    }
+    
+    void loop(void) {
+        byte *buffer = NULL;
+        
+        if (RFIDreader.hasData()) {
+            if (RFIDreader.getData(&buffer) == IDx_VALID_CODE) {
+                Serial.println(buffer);
+                free(buffer);
+            }
+        }
+    }
