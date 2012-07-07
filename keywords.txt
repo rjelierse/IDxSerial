@@ -1,0 +1,29 @@
+#######################################
+# Syntax Coloring Map For IDxSerial
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+IDxSerial	KEYWORD1
+IDxStatus	KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+hasData		KEYWORD2
+getData		KEYWORD2
+
+#######################################
+# Constants (LITERAL1)
+#######################################
+
+IDx_VALID_CODE		LITERAL1
+IDx_CHECKSUM_FAILED	LITERAL1
+IDx_INCOMPLETE		LITERAL1
+IDx_INVALID_DATA	LITERAL1
+IDx_NO_DATA		LITERAL1
+IDx_ERROR		LITERAL1
+
